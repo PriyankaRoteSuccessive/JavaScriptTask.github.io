@@ -124,8 +124,9 @@ function myFunc(total, num) {
   return total - num;
 }
 
-//reduceRight()
+//27 reduceRight()
 console.log(`reduceRight()`+numbers.reduceRight(myFunc));
 function myFunc(total, num) {
   return total - num;
 }
+
