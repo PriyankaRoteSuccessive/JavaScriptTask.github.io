@@ -63,3 +63,5 @@ function getCrudData(){
 function setCrudData(arr){
 	localStorage.setItem('crud',JSON.stringify(arr));
 }
+
+
