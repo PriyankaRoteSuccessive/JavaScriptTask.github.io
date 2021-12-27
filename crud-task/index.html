@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>CRUD OPRATION</title>
+</head>
+<body>
+    <section class="todo-outer">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-sm-12 col-md-8">
+            <h1> Frontend Team </h1>
+            <div class="todo-inner">
+              <div class="form-row">
+                <div class="col-8 mr-sm-2">
+                  <input type="text" class="form-control" placeholder="Enter your Name " id="addtaskinput" />
+                  <input type="hidden" id="saveindex">
+                </div>
+                <button type="button" class="btn btn-success mr-sm-2" id="addtaskbtn">
+                  Add 
+                </button>
+                <button type="button" class="btn btn-success mr-sm-2" id="savetaskbtn" style="display: none;">
+                  Save 
+                </button>
+                <button type="button" id="deleteallbtn" class="btn btn-danger">
+                  Delete All
+                </button>
+              </div>
+              <div class="to-do-output">
+                <table class="table table-striped mt-3 mb-0" id="addedtasklist">
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+
+      <div class="container ">
+        <div id="pagination-wrapper"></div>
+    </div>
+
+  </footer>
+    
+    
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
+
+
