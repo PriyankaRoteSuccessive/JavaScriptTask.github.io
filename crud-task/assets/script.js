@@ -1,3 +1,4 @@
+
 showtask();
 let addtaskinput = document.getElementById("addtaskinput");
 let addtaskbtn = document.getElementById("addtaskbtn");
@@ -19,9 +20,45 @@ addtaskbtn.addEventListener("click", function(){
     }
     showtask();
 })
+let webtasks = localStorage.getItem("localtask");
+var tableData = JSON.parse(webtasks);
+console.log("tab",tableData)
+var state = {
+    'querySet': tableData,
+    'page': 1,
+    'rows': 5
+}
+//console.log("stA",state.querySet)
+//pagignation
+function pagination(querySet, page, rows) {
+
+    var trimStart = (page - 1) * rows
+    console.log("trimmedstart is ",trimStart);
+    //console.log("queryset is ",querySet);
+    console.log("page is ",page);
+
+    var trimEnd = trimStart + rows
+    console.log("trimmedend is ",trimEnd);
+// var a=[1,2,3,4,5,6,7]
+// a.slice(0,2)
+// console.log("A",a.slice(0,2));
+    var trimmedData = querySet[0].slice(trimStart,trimEnd)
+    console.log("trimdata is",trimmedData);
+
+    
+    var pages = Math.round(tableData.length / rows);
+     return  trimmedData;
+    // return {
+    //     'querySet': trimmedData,
+    //     'pages': pages,
+    // }
+}
+
 
 // showtask
 function showtask(){
+     let show_data=pagination(tableData,1,5);
+     console.log("show_data",show_data);
     let webtask = localStorage.getItem("localtask");
     if(webtask == null){
         taskObj = [];
@@ -47,6 +84,7 @@ function showtask(){
     });
     addedtasklist.innerHTML = html;
 }
+
 
 // edittask
 function edittask(index){
@@ -150,31 +188,11 @@ deleteallbtn.addEventListener("click", function(){
 
 
 //pagination
-var tableData = [taskObj];
-var state = {
-    'querySet': tableData,
 
-    'page': 1,
-    'rows': 5,
-    'window': 5,
-}
+//console.log("QQQ",state.querySet)
 
 buildTable()
 
-function pagination(querySet, page, rows) {
-
-    var trimStart = (page - 1) * rows
-    var trimEnd = trimStart + rows
-
-    var trimmedData = querySet.slice(trimStart, trimEnd)
-
-    var pages = Math.round(querySet.length / rows);
-
-    return {
-        'querySet': trimmedData,
-        'pages': pages,
-    }
-}
 
 function pageButtons(pages) {
     var wrapper = document.getElementById('pagination-wrapper')
@@ -228,6 +246,7 @@ function buildTable() {
     var table = $('#table-body')
 
     var data = pagination(state.querySet, state.page, state.rows)
+    console.log("data is ",data)
     var myList = data.querySet
 
     for (var i = 1 in myList) {
@@ -236,6 +255,7 @@ function buildTable() {
                   <td>${myList[i].rank}</td>
                   <td>${myList[i].first_name}</td>
                   <td>${myList[i].last_name}</td>
+                  </tr>
                   `
         table.append(row)
     }
